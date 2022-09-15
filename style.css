@@ -20,7 +20,7 @@ body {
     padding: 20px 0px;
 }
 
-.bar_container {
+#bar_container {
     display: flex;
     flex-direction: row;
 }
@@ -39,7 +39,27 @@ body {
 .button_sort {
     width: 30px;
     height: 30px;
-    background-color: white;
+    background-color: black;
+    border-color:transparent;
+}
+
+.button_sort:hover {
     border-color:white;
+}
+
+#button_sort_icon {
+    color: white;
+}
+
+#select_algo {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    background-color: black;
+    border-color: transparent;
+    color: white;
+}
+
+#select_algo:hover {
+    border-color: white;
 }
 
