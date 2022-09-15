@@ -1,12 +1,13 @@
 let button_sort = document.getElementById("button_sort");
 let bar_container = document.getElementById("bar_container");
 
-let numBars = 20;
-let minBarHeight = 20;
-let maxBarHeight = 200;
-let delay_ms = 50;
+let num_bars = 20;
+let min_height = 2;
+let max_height = 20;
+let height_multiplier = 20; // allows more visually noticable difference between bar heights
+let delay_ms = 20;
 
-let unsorted_arr = new Array(numBars);
+let unsorted_arr = new Array(num_bars);
 let sorted = false;
 
 // calls function on load
@@ -33,8 +34,8 @@ function getRandomNum(min, max) {
 }
 
 function randomizeArray() {
-    for (let i = 0; i < numBars; i++) {
-        unsorted_arr[i] = getRandomNum(minBarHeight, maxBarHeight);
+    for (let i = 0; i < num_bars; i++) {
+        unsorted_arr[i] = getRandomNum(min_height, max_height);
     }
 }
 
@@ -42,7 +43,7 @@ function renderBars(arr) {
     for (let i = 0; i < arr.length; i++) {
         let bar = document.createElement("div"); 
         bar.classList.add("bar");
-        bar.style.height = arr[i] + "px";
+        bar.style.height = arr[i] * height_multiplier + "px";
         bar_container.appendChild(bar);
     }
 }
@@ -68,8 +69,8 @@ async function bubbleSort(arr) {
                     bars[j].style.backgroundColor = "green";
                     bars[j + 1].style.backgroundColor = "green";
                     await sleep(delay_ms);
-                    bars[j].style.height = arr[j] + "px";
-                    bars[j + 1].style.height = arr[j + 1] + "px";                 
+                    bars[j].style.height = arr[j] * height_multiplier + "px";
+                    bars[j + 1].style.height = arr[j + 1] * height_multiplier + "px";                 
                     await sleep(delay_ms);
                 } else {
                     await sleep(delay_ms);
