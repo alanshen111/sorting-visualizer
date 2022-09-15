@@ -29,7 +29,6 @@ body {
     width: 30px;
     border: 2px solid white;
     margin: 0 2px;
-    transition: height 1ms ease-in-out;
 }
 
 .button_container {
