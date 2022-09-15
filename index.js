@@ -8,7 +8,7 @@ let num_bars = 20;
 let min_height = 2;
 let max_height = 20;
 let height_multiplier = 20; // allows more visually noticable difference between bar heights
-let delay_ms = 50;
+let delay_ms = 20;
 
 let my_array = new Array(num_bars);
 let current_algo = select_algo.value;
@@ -71,58 +71,56 @@ function sleep(ms) {
 }
 
 async function sortBubble(arr) {
+    let startTime = performance.now();
     let bars = document.getElementsByClassName("bar");
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length - i - 1; j++) {
-            
+            bars[j].style.backgroundColor = "green";
+            bars[j + 1].style.backgroundColor = "green";
+            if (arr[j] > arr[j + 1]) {
+                // swap array values
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                // animate
                 bars[j].style.backgroundColor = "green";
                 bars[j + 1].style.backgroundColor = "green";
-
-                if (arr[j] > arr[j + 1]) {
-                    // swap array values
-                    let temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    // animate
-                    bars[j].style.backgroundColor = "green";
-                    bars[j + 1].style.backgroundColor = "green";
-                    await sleep(delay_ms);
-                    bars[j].style.height = arr[j] * height_multiplier + "px";
-                    bars[j + 1].style.height = arr[j + 1] * height_multiplier + "px";                 
-                    await sleep(delay_ms);
-                } else {
-                    await sleep(delay_ms);
-                }
-
-                bars[j].style.backgroundColor = "black";
-                bars[j + 1].style.backgroundColor = "black";
-            
+                await sleep(delay_ms);
+                bars[j].style.height = arr[j] * height_multiplier + "px";
+                bars[j + 1].style.height = arr[j + 1] * height_multiplier + "px";                 
+                await sleep(delay_ms);
+            } else {
+                await sleep(delay_ms);
+            }
+            bars[j].style.backgroundColor = "black";
+            bars[j + 1].style.backgroundColor = "black";
         }
     }
-    return arr;
+    let endTime = performance.now();
+    console.log("done in " + (endTime - startTime) + "ms");
 }
 
 async function sortInsertion(array) {
-
-        let bars = document.getElementsByClassName("bar");
-        for (let i = 1; i < array.length; i++) {
-          let key = array[i];
-          let j = i - 1;
-          while (j >= 0 && array[j] > key) {
+    let startTime = performance.now();
+    let bars = document.getElementsByClassName("bar");
+    for (let i = 1; i < array.length; i++) {
+        let key = array[i];
+        let j = i - 1;
+        while (j >= 0 && array[j] > key) {
             array[j + 1] = array[j];
             bars[j + 1].style.height = array[j + 1] * height_multiplier + "px";
             bars[j + 1].style.backgroundColor = "green";
             await sleep(delay_ms);
             bars[j + 1].style.backgroundColor = "black";
             j = j - 1;
-          }
-          array[j + 1] = key;
-          bars[j + 1].style.height = array[j + 1] * height_multiplier + "px";
-          bars[j + 1].style.backgroundColor = "green";
-          await sleep(delay_ms);
-          bars[j + 1].style.backgroundColor = "black";
         }
-      
-
+        array[j + 1] = key;
+        bars[j + 1].style.height = array[j + 1] * height_multiplier + "px";
+        bars[j + 1].style.backgroundColor = "green";
+        await sleep(delay_ms);
+        bars[j + 1].style.backgroundColor = "black";
+    }
+    let endTime = performance.now();
+    console.log("done in " + (endTime - startTime) + "ms");
   }
 
