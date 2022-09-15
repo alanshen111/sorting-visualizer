@@ -7,6 +7,26 @@ let maxBarHeight = 200;
 let delay_ms = 50;
 
 let unsorted_arr = new Array(numBars);
+let sorted = false;
+
+// calls function on load
+document.addEventListener("DOMContentLoaded", function() {
+    randomizeArray();
+    renderBars(unsorted_arr);
+});
+
+button_sort.addEventListener("click", function () {
+    if (sorted) {
+        location.reload();
+    } else {
+        let sorted_arr = bubbleSort(unsorted_arr);
+        console.log(sorted_arr);
+        let button_sort_icon = document.getElementById("button_sort_icon");
+        button_sort_icon.classList.remove("fa-play");
+        button_sort_icon.classList.add("fa-repeat");
+        sorted = true;
+    }
+});
 
 function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -17,12 +37,6 @@ function randomizeArray() {
         unsorted_arr[i] = getRandomNum(minBarHeight, maxBarHeight);
     }
 }
-
-// calls function on load
-document.addEventListener("DOMContentLoaded", function() {
-    randomizeArray();
-    renderBars(unsorted_arr);
-});
 
 function renderBars(arr) {
     for (let i = 0; i < arr.length; i++) {
@@ -69,7 +83,3 @@ async function bubbleSort(arr) {
     return arr;
 }
 
-button_sort.addEventListener("click", function () {
-    let sorted_arr = bubbleSort(unsorted_arr);
-    console.log(sorted_arr);
-});

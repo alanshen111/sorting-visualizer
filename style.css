@@ -32,7 +32,15 @@ body {
     transition: height 1ms ease-in-out;
 }
 
-.button {
-    background-color: aliceblue;
-    
+.button_container {
+    display: flex;
+    flex-direction: row;
 }
+
+.button_sort {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-color:white;
+}
+
