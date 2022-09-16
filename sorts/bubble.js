@@ -1,4 +1,4 @@
-async function bubbleSort(arr) {
+async function bubble(arr) {
     let startTime = performance.now();
     let bars = document.getElementsByClassName("bar");
     for (let i = 0; i < arr.length; i++) {

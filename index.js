@@ -8,7 +8,7 @@ let num_bars = 20;
 let min_height = 2;
 let max_height = 20;
 let height_multiplier = 20; // allows more visually noticable difference between bar heights
-let delay_ms = 20;
+let delay_ms = 40;
 
 let my_array = new Array(num_bars);
 let current_algo = select_algo.value;
@@ -32,10 +32,13 @@ button_sort.addEventListener("click", function () {
         console.log(current_algo + " running");
         switch (current_algo) {
             case "bubble": 
-                bubbleSort(my_array); 
+                bubble(my_array); 
                 break;
             case "insertion": 
-                insertionSort(my_array);
+                insertion(my_array);
+                break;
+            case "bogo":
+                bogo(my_array);
                 break;
             default: 
                 break;

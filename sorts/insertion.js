@@ -1,4 +1,4 @@
-async function insertionSort(array) {
+async function insertion(array) {
     let startTime = performance.now();
     let bars = document.getElementsByClassName("bar");
     for (let i = 1; i < array.length; i++) {
