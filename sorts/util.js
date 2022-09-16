@@ -8,11 +8,11 @@ function randomizeArray() {
     }
 }
 
-function renderBars(arr) {
-    for (let i = 0; i < arr.length; i++) {
+function renderBars() {
+    for (let i = 0; i < my_array.length; i++) {
         let bar = document.createElement("div"); 
         bar.classList.add("bar");
-        bar.style.height = arr[i] * height_multiplier + "px";
+        bar.style.height = my_array[i] * height_multiplier + "px";
         bar_container.appendChild(bar);
     }
 }
