@@ -1,32 +1,26 @@
-async function bogo(arr) {
+async function bogo(arr) { // todo final state is all colored, unlike other sorts
     let startTime = performance.now();
     let bars = document.getElementsByClassName("bar");
     // note: async functions are not reliable for boolean operations
     // they will default to true until function complete
     let sorted = false;
     while (!sorted) {
-
-
         sorted = true;
-
-        //bars[0].style.backgroundColor = "green";
-        
         for (let j = 0; j < arr.length - 1; j++) {
             await sleep(delay_ms);
-            bars[j].style.backgroundColor = "green";
+            bars[j].style.backgroundColor = color_bar_sorting;
             if (arr[j] > arr[j + 1]) {
-                bars[j+1].style.backgroundColor = "red";
+                bars[j+1].style.backgroundColor = color_bar_wrong;
                 await sleep(delay_ms * 4);
                 for (let k = 0; k < j + 1 + 1; k++) {
-                    bars[k].style.backgroundColor = "black";
+                    bars[k].style.backgroundColor = color_bar_default;
                 }
                 sorted = false;
                 break;
             }
         }
-
         if (sorted) {
-            bars[bars.length-1].style.backgroundColor = "green";
+            bars[bars.length-1].style.backgroundColor = color_bar_sorting;
         } else {
             let shuffled = [];
             let rand;
@@ -40,13 +34,7 @@ async function bogo(arr) {
             }
             arr = shuffled;
         }
-
     } 
-
     let endTime = performance.now();
     console.log("done in " + (endTime - startTime) + "ms");
-    
 }
-
-
-
