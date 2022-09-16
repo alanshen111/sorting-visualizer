@@ -4,7 +4,7 @@ let button_sort = document.getElementById("button_sort");
 let select_algo = document.getElementById("select_algo");
 let bar_container = document.getElementById("bar_container");
 
-let num_bars = 20;
+let num_bars = 5;
 let min_height = 2;
 let max_height = 20;
 let height_multiplier = 20; // allows more visually noticable difference between bar heights

@@ -5,17 +5,7 @@ async function bogo(arr) {
     // they will default to true until function complete
     let sorted = false;
     while (!sorted) {
-        let shuffled = [];
-        let rand;
-        while (arr.length !== 0) {
-            rand = Math.floor(Math.random() * arr.length)
-            shuffled.push(arr.splice(rand, 1)[0]);
-        }
-        await sleep(delay_ms);
-        for (let i = 0; i < shuffled.length; i++) {
-            bars[i].style.height = shuffled[i] * height_multiplier + "px";
-        }
-        arr = shuffled;
+
 
         sorted = true;
 
@@ -34,6 +24,23 @@ async function bogo(arr) {
                 break;
             }
         }
+
+        if (sorted) {
+            bars[bars.length-1].style.backgroundColor = "green";
+        } else {
+            let shuffled = [];
+            let rand;
+            while (arr.length !== 0) {
+                rand = Math.floor(Math.random() * arr.length)
+                shuffled.push(arr.splice(rand, 1)[0]);
+            }
+            await sleep(delay_ms);
+            for (let i = 0; i < shuffled.length; i++) {
+                bars[i].style.height = shuffled[i] * height_multiplier + "px";
+            }
+            arr = shuffled;
+        }
+
     } 
 
     let endTime = performance.now();
