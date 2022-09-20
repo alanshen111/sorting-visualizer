@@ -23,7 +23,6 @@ let color_bar_wrong = "red";
 document.addEventListener("DOMContentLoaded", function() {
     randomizeArray();
     renderBars(my_array);
-    
 });
 
 num_bars_slider.addEventListener("input", function () {

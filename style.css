@@ -66,6 +66,7 @@ body {
 #select_algo {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    font-size: medium;
     background-color: black;
     border-color: transparent;
     color: white;
@@ -76,6 +77,10 @@ body {
 }
 
 #info_container {
-    color:white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: medium;
+    border-color: transparent;
+    color: white;
 }
 
