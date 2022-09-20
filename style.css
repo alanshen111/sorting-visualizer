@@ -8,13 +8,25 @@ body {
     background-color: black;
 }
 
+.outer_container {
+    max-width: 100vw;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
 .container { /* v stands for viewport */
     max-width: 100vw;
     height: 100vh;
     width: 100%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* things in the container align in a column */
     align-items: center;
     justify-content: space-between;
     padding: 20px 0px;
@@ -61,5 +73,9 @@ body {
 
 #select_algo:hover {
     border-color: white;
+}
+
+#info_container {
+    color:white;
 }
 

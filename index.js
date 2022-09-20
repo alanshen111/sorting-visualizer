@@ -16,13 +16,14 @@ let current_algo = select_algo.value;
 let sorting = false;
 
 let color_bar_default = "black";
-let color_bar_sorting = "pink";
+let color_bar_sorting = "green";
 let color_bar_wrong = "red";
 
 // calls function on load
 document.addEventListener("DOMContentLoaded", function() {
     randomizeArray();
     renderBars(my_array);
+    
 });
 
 num_bars_slider.addEventListener("input", function () {
@@ -37,6 +38,7 @@ num_bars_slider.addEventListener("input", function () {
 select_algo.addEventListener("change", function () {
     console.log(select_algo.value + " selected");
     current_algo = select_algo.value;
+    renderInfo();
 });
 
 button_sort.addEventListener("click", function () {

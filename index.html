@@ -8,29 +8,36 @@
     <title>sorting visualizer</title>
   </head>
   <body>
-    <div class="container">
-        <div id="bar_container"></div>
-        <div class="button_container">
-          <input
-          type="range"
-          id="num_bars_slider"
-          min="1"
-          max="30"
-          step="1"
-          value="10"
-          />
-          <select id="select_algo">
-            <option value="bubble">bubble</option>
-            <option value="insertion">insertion</option>
-            <option value="bogo">bogo</option>
-          </select>
-          <button class="button_sort" id="button_sort"><i id="button_sort_icon" class="fa fa-play"></i></button>
-        </div>
+    <div class="outer_container">
+      <div class="container">
+          <div id="bar_container"></div>
+          <div class="button_container">
+            <input
+            type="range"
+            id="num_bars_slider"
+            min="1"
+            max="30"
+            step="1"
+            value="10"
+            />
+            <select id="select_algo">
+              <option value="bubble">bubble</option>
+              <option value="insertion">insertion</option>
+              <option value="bogo">bogo</option>
+            </select>
+            <button class="button_sort" id="button_sort"><i id="button_sort_icon" class="fa fa-play"></i></button>
+          </div>
+      </div>
+      <div class="container">
+          <zero-md id="info_container" src="infos/bubble.md"><template><style></style></template></zero-md>
+      </div>
     </div>
     <script src="index.js"></script>
-    <script src="sorts/util.js"></script>
+    <script src="util.js"></script>
     <script src="sorts/bubble.js"></script>
     <script src="sorts/insertion.js"></script>
     <script src="sorts/bogo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
   </body>
 </html>

@@ -17,6 +17,10 @@ function renderBars() {
     }
 }
 
+function renderInfo() { // todo
+    document.getElementById("info_container").src="infos/bogo.md";
+}
+
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
