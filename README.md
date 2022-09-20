@@ -1,2 +1,2 @@
 # sorting visualizer
-click the webpage link to try it out!
+try it out: alanshen111.github.io/sorting-visualizer/ 
