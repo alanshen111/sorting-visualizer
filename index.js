@@ -4,6 +4,9 @@ let button_sort = document.getElementById("button_sort");
 let select_algo = document.getElementById("select_algo");
 let bar_container = document.getElementById("bar_container");
 let num_bars_slider = document.getElementById("num_bars_slider");
+let info_container = document.getElementById("info_container");
+let complexity_container = document.getElementById("complexity_container");
+let code_container = document.getElementById("code_container");
 
 let num_bars = num_bars_slider.value;
 let min_height = 2;
@@ -22,7 +25,8 @@ let color_bar_wrong = "red";
 // calls function on load
 document.addEventListener("DOMContentLoaded", function() {
     randomizeArray();
-    renderBars(my_array);
+    renderBars();
+    renderInfo();
 });
 
 num_bars_slider.addEventListener("input", function () {
@@ -48,16 +52,17 @@ button_sort.addEventListener("click", function () {
         sorting = true;
         console.log(current_algo + " running");
         switch (current_algo) {
-            case "bubble": 
+            case "Bubble": 
                 bubble(my_array); 
                 break;
-            case "insertion": 
+            case "Insertion": 
                 insertion(my_array);
                 break;
-            case "bogo":
+            case "Bogo":
                 bogo(my_array);
                 break;
             default: 
+                info_container.textContent="this is an error.";
                 break;
         }
         let button_sort_icon = document.getElementById("button_sort_icon");
